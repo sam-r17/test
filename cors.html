@@ -1,7 +1,7 @@
 <iframe sandbox="allow-scripts allow-top-navigation allow-forms" srcdoc="<script>
     var req = new XMLHttpRequest();
     req.onload = reqListener;
-    req.open('get','https://axis.datasirpi.com/api/latest/dsendpoint/users',true);
+    req.open('get','https://axis-d2dbackend.datasirpi.com/api/latest/dsendpoint/users',true);
     req.withCredentials = true;
     req.send();
     function reqListener() {
