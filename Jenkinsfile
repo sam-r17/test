@@ -5,6 +5,7 @@ pipeline {
         stage('Prepare') {
             steps {
                 sh 'git clone https://github.com/projectdiscovery/nuclei.git'
+                sh 'apt install golang'
                 sh 'cd nuclei/cmd/nuclei'
                 sh 'go build'
                 sh 'mv nuclei /usr/local/bin/'
