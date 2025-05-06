@@ -6,6 +6,7 @@ pipeline {
             steps {
                 sh 'git clone https://github.com/projectdiscovery/nuclei.git'
                 sh 'cd nuclei/cmd/nuclei'
+                sh 'go mod init'
                 sh 'go build'
                 sh 'mv nuclei /usr/local/bin/'
                 sh 'nuclei -update-templates'
