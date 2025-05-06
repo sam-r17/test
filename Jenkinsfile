@@ -4,12 +4,17 @@ pipeline {
     stages {
         stage('Prepare') {
             steps {
+                sh 'git clone https://github.com/projectdiscovery/nuclei.git'
+                sh 'cd nuclei/cmd/nuclei'
+                sh 'go build'
+                sh 'mv nuclei /usr/local/bin/'
                 sh 'nuclei -update-templates'
+                sh 'nuclei -version'
             }
         }
         stage('Scan') {
             steps {
-                sh 'nuclei -l urls.txt -t ~/nuclei-templates -o results.txt'
+                sh 'nuclei -u https://datasirpi.com -t ~/nuclei-templates -o results.txt'
             }
         }
         stage('Archive Results') {
