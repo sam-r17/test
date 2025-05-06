@@ -6,7 +6,7 @@ pipeline {
             steps {
                 sh 'git clone https://github.com/projectdiscovery/nuclei.git'
                 sh 'cd nuclei/cmd/nuclei'
-                sh 'go mod init projectdiscovery/nuclei'
+                sh 'go mod init github.com/projectdiscovery/nuclei'
                 sh 'go mod tidy'
                 sh 'go build nuclei/cmd/nuclei/main.go'
                 sh 'mv nuclei/cmd/nuclei/main /usr/local/bin/nuclei'
