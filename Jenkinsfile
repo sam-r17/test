@@ -7,8 +7,8 @@ pipeline {
                 sh 'git clone https://github.com/projectdiscovery/nuclei.git'
                 sh 'cd nuclei/cmd/nuclei'
                 sh 'go mod init example.com/nuclei'
-                sh 'go build example.com/nuclei'
-                sh 'mv example.com/nuclei /usr/local/bin/'
+                sh 'go build nuclei/cmd/nuclei/main.go'
+                sh 'mv nuclei/cmd/nuclei/main /usr/local/bin/nuclei'
                 sh 'nuclei -update-templates'
                 sh 'nuclei -version'
             }
