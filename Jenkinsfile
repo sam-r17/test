@@ -16,7 +16,7 @@ pipeline {
             steps {
                 sh '''
                     # Run nuclei with JSON output
-                    /var/jenkins_home/go/bin/nuclei -u https://datasirpi.com -t ~/nuclei-templates -json -o results.json
+                    /var/jenkins_home/go/bin/nuclei -u https://datasirpi.com -t ~/nuclei-templates -json-export results.json
 
                     # Extract non-informational findings
                     jq -r 'select(.info.severity != "info")' results.json > findings.json
