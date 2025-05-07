@@ -6,13 +6,13 @@ pipeline {
             steps {
                 sh 'go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest'
                 sh 'alias nuclei=/var/jenkins_home/go/bin/nuclei'
-                sh 'nuclei -update-templates'
-                sh 'nuclei -version'
+                sh '/var/jenkins_home/go/bin/nuclei -update-templates'
+                sh '/var/jenkins_home/go/bin/nuclei -version'
             }
         }
         stage('Scan') {
             steps {
-                sh 'nuclei -u https://datasirpi.com -t ~/nuclei-templates -o results.txt'
+                sh '/var/jenkins_home/go/bin/nuclei -u https://datasirpi.com -t ~/nuclei-templates -o results.txt'
             }
         }
         stage('Archive Results') {
