@@ -19,7 +19,7 @@ pipeline {
                     /var/jenkins_home/go/bin/nuclei -u https://datasirpi.com -t ~/nuclei-templates -json-export results.json
 
                     # Extract non-informational findings
-                    jq -r 'select(.info.severity != "info")' results.json > findings.json
+                    jq '.[] | select(.info.severity != "info")' results.json > findings.json
 
                     if [ -s findings.json ]; then
                       echo "Non-informational findings detected:"
