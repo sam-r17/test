@@ -5,6 +5,7 @@ pipeline {
         stage('Prepare') {
             steps {
                 sh 'go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest'
+                sh 'alias nuclei=/var/jenkins_home/go/bin/nuclei'
                 sh 'nuclei -update-templates'
                 sh 'nuclei -version'
             }
