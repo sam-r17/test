@@ -33,7 +33,7 @@ pipeline {
         }
         stage('Archive Results') {
             steps {
-                archiveArtifacts artifacts: 'results.txt', fingerprint: true
+                archiveArtifacts artifacts: 'results.json', fingerprint: true
             }
         }
     }
